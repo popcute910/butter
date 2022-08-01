@@ -1,0 +1,48 @@
+{% extends 'butter/base.html' %}
+{% load static %}
+{% block content %}
+<div class="container main-container">
+    <div class="profile">
+        <div class="user-icon">
+            {% if user_detail.image %}
+            <img src="{{ user_detail.image.url }}" class="user-icon-img150">
+            {% else %}
+            <img src="{% static 'butter/kkrn_icon_user_10.png' %}" class="user-icon-img150">
+            {% endif %}
+        </div>
+        <div class="profile-info">
+            <ul class="profile-top">
+                <!-- 上段 -->
+                <li class=""><a class="myname" href="{% url 'profile' user_detail.username %}">{{ user_detail.nickname }}</a></li>
+                {% if user_detail.username == request.user.username %}
+                    <li><a href="{% url 'edit_profile' request.user.username %}" class="btn edit-profile-btn">プロフィールを編集</a></li>
+                <!--プロフィールの遷移先が自分がフォローしているユーザーの場合の表示ボタン-->
+                {% elif connected %}
+                    <li><a href="{% url 'unfollow' username %}" class="btn unfollow-btn">フォロー中</a></li>
+                <!--自分がフォローしていないユーザーの場合の表示ボタン-->
+                {% else %}
+                    <li><a href="{% url 'follow' username %}" class="btn follow-btn">フォロー</a></li>
+                {% endif %}
+                <!-- <li><a href="{% url 'logout' %}"><i class="fa-solid fa-gear icon-size"></i></a></li> -->
+            </ul>
+            <ul class="profile-bottom">
+                <!-- 下段 -->
+                <!-- <li class="myprofile-bottom-style"><a href="{% url 'profile' user_detail.username %}">投稿 {{ my_posts_count }}件</a></li> -->
+                <li class="myprofile-bottom-style"><a href="{% url 'follower' user_detail.username %}"><span class="ff-text">{{ follower }}</span>フォロワー</a></li>
+                <li><a href="{% url 'following' user_detail.username %}"><span class="ff-text">{{ following }}</span>フォロー中</a></li>
+            </ul>
+            <p class="introduction">{{ user_detail.introduction }}</p>
+            <p><a href="{{ User.url }}" class="url"><i class="fa-solid fa-globe url-icon"></i>{{ user_detail.url }}</a></p>
+        </div>
+    </div>
+    <!-- {% if messages %}
+        <div class="notifications">
+            {% for message in messages %}
+            <p><a href=""><i class="fa-solid fa-check"></i>{{ message }}</a></p>
+            {% endfor %}
+        </div>
+    {% endif %} -->
+    {% block profile %}
+    {% endblock %}
+</div>
+{% endblock %}

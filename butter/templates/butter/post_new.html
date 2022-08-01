@@ -1,0 +1,15 @@
+{% extends 'butter/base.html' %}
+{% load widget_tweaks %}
+{% block content %}
+<div class="container main-container">
+    <div class="form-style">    
+        <form method="POST" class="post-form">
+            {% csrf_token %}
+            <div class="">
+                {{ form.post_text }}
+            </div>
+            <button type="submit" class="btn submit-btn">ツイートする</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

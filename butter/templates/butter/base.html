@@ -1,0 +1,57 @@
+{% load widget_tweaks %}
+{% load static %}
+
+<html>
+    <head>
+        <!-- Google Font -->
+        <link rel="stylesheet" href="{% static '/css/butter.css' %}">
+        <link rel="preconnect" href="https://fonts.googleapis.com"> 
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+        <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap" rel="stylesheet">
+        <!-- レスポンシブデザイン -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+        <!-- icon -->
+        <script src="https://kit.fontawesome.com/3168943f53.js" crossorigin="anonymous"></script>
+    </head>
+
+    <body>
+        <header>
+            <div class="container header-container header-contents">
+                <h1><a class="toptitle-style" href="{% url 'home' %}">Butter</a></h1>
+                <nav>
+                    <ul class="top-icon">
+                        {% if user.is_authenticated %}
+                        <li>
+                            <a href="{% url 'home' %}"><i class="fa-solid fa-house icon-size"></i></a>
+                        </li>
+                        <li>
+                            <a href="{% url 'create_post' %}"><i class="fa-regular fa-square-plus icon-size"></i></a>
+                        </li>
+                        <li>
+                            <a href="{% url 'profile' request.user.username %}">
+                                {% if user.image %}
+                                <img src="{{ request.user.image.url }}" class="user-icon-img30">
+                                {% else %}
+                                <img src="{% static 'butter/kkrn_icon_user_10.png' %}" class="user-icon-img30">
+                                {% endif %}
+                            </a>
+                        </li>
+                        {% else %}
+                        <li>
+                            <a href="{% url 'signup' %}">Sign up</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'login' %}">Log in</a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <div class="main-contents">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </body>
+</html>
+

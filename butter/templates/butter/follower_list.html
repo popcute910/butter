@@ -1,0 +1,31 @@
+<!-- プロフィールページ拡張 -->
+{% extends 'butter/profile.html' %}
+{% load static %}
+{% block profile %}
+<div class="ff-list">
+    {% for fuser in follower_username %}
+    <div class="ff-container">
+        {% if fuser.image %}
+            <a href="{% url 'profile' fuser.username %}"><img src="{{ fuser.image.url }}" class="user-icon-img50"></a>
+        {% else %}
+            <a href="{% url 'profile' fuser.username %}"><img src="{% static 'butter/kkrn_icon_user_10.png' %}" class="user-icon-img50"></a>
+        {% endif %}
+        <ul>
+            <li><a class="fuser-name" href="{% url 'profile' fuser.username %}">{{ fuser.nickname }}</a></li>
+            <li class="name-glay">@{{ fuser.username }}</li>
+        </ul>
+        <div>
+            {% if fuser.username == request.user.username %}
+                <a href="{% url 'profile' fuser.username %}" class="btn unfollow-btn">あなた</a>
+            <!--プロフィールの遷移先が自分がフォローしているユーザーの場合の表示ボタン-->
+            {% elif fuser.username in login_following_username %}
+                <a href="{% url 'unfollow' fuser.username %}" class="btn unfollow-btn">フォロー中</a>
+            <!--自分がフォローしていないユーザーの場合の表示ボタン-->
+            {% else %}
+                <a href="{% url 'follow' fuser.username %}" class="btn follow-btn">フォロー</a>
+            {% endif %}
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

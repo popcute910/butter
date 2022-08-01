@@ -1,0 +1,26 @@
+<!-- プロフィールページ拡張 -->
+{% extends 'butter/profile.html' %}
+{% load static %}
+{% block profile %}
+<div class="profile-contents">
+    {% for my_post in my_posts %}
+    <div class="post-box">
+        <div class="">
+            {% if user_detail.image %}
+                <img src="{{ user_detail.image.url }}" class="user-icon-img50">
+            {% else %}
+                <img src="{% static 'butter/kkrn_icon_user_10.png' %}" class="user-icon-img50">
+            {% endif %}
+        </div>
+        <div class="post-container">
+            <div class="d_post-user">
+                <p><a href="{% url 'profile' my_post.post_user %}" class="post_nickname">{{ user_detail.nickname }}</a></p>
+                <p class="post_username"><a href="{% url 'profile' my_post.post_user %}">@{{ user_detail.username }}</a></p>
+            </div>
+            <p>{{ my_post.post_text|linebreaksbr }}</p>
+            <p class="created-date"><a class="" href="{% url 'profile' my_post.post_user %}">{{ my_post.created_date }}</a></p>
+        </div>     
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

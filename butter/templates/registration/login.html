@@ -1,0 +1,21 @@
+{% extends 'butter/base.html' %}
+{% load widget_tweaks %}
+{% block content %}
+<div class="container main-container">
+    <div class="container main-container">
+        <div class="form-style">
+            <h2 class="section-title">Log in</h2>
+            <form method="POST">
+                {% csrf_token %}
+                <div class="login-form">
+                    {% for field in form %}
+                        <p>{{ field }}</p>
+                        <p>{{ field.errors }}</p>
+                    {% endfor %}
+                    <button type="submit" class="btn width-btn">Log in</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

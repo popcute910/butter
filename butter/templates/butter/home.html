@@ -1,0 +1,37 @@
+{% extends 'butter/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <div class="form-style">
+        <form method="POST" class="post-form">
+            <h2 class="new-tweet">最新ツイート</h2>
+            {% csrf_token %}
+            <div class="">
+                {{ form.post_text }}
+            </div>
+            
+            <button type="submit" class="btn submit-btn">ツイートする</button>
+        </form>
+    </div>
+    {% for posts, post_myusers in post_info %}
+        <div class="post-box">
+            <div class="">
+                {% if post_myusers.image %}
+                <a href="{% url 'profile' posts.post_user %}"><img src="{{ post_myusers.image.url }}" class="user-icon-img50"></a>
+                {% else %}
+                <a href="{% url 'profile' posts.post_user %}"><img src="{% static 'butter/kkrn_icon_user_10.png' %}" class="user-icon-img50"></a>
+                {% endif %}
+            </div>
+            <div class="post-container">
+                <div class="d_post-user">
+                    <p><a href="{% url 'profile' posts.post_user %}" class="post_nickname">{{ post_myusers.nickname }}</a></p>
+                    <p class="post_username"><a href="{% url 'profile' posts.post_user %}">@{{ post_myusers.username }}</a></p>
+                </div>
+                <p class="post-text">{{ posts.post_text|linebreaksbr|urlize }}</p>
+                <p class="created-date"><a class="" href="{% url 'profile' posts.post_user %}">{{ posts.created_date }}</a></p>
+            </div>     
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,417 @@
+*{
+    margin: 0;
+    padding: 0;
+    color: #222;
+    font-size: 15px;
+    font-family: sans-serif;
+    text-decoration: none;
+    font-weight: normal;
+    list-style: none;
+    /* letter-spacing: 0.1em; */
+    box-sizing: border-box;
+}
+body{
+    width: 100%;
+    background-color: #fff;
+}
+.container{
+    margin: 0 auto;
+    max-width: 600px;
+    width: 100%;
+}
+.header-container{
+    max-width: 900px;
+    padding: 0 15px;
+}
+.main-container{
+    padding-top: 20px;
+}
+/* 共有クラス */
+input[type="file"] {
+    display: none;
+}
+.notifications{
+    margin-bottom: 30px;
+    text-align: center;
+}
+.notifications a{
+    color: #ff7f50;
+}
+.fa-check{
+    color: #ff7f50;
+    margin-right: 10px;
+}
+.btn{
+    border: solid 1px #71767B;
+    border-radius: 999px;
+    background-color: #fff;
+    box-sizing: border-box;
+    padding: 0 20px;
+    margin: 0 10px;
+    height: 30px;
+    line-height: 30px;
+    display: inline-block;
+    text-align: center;
+}
+.submit-btn{
+    border: none;
+    background-color: #000;
+    margin: 0;
+    color: #fff;
+    cursor: pointer;
+}
+.width-btn{
+    width: 100%;
+    max-width: 360px;
+    height: 40px;
+    line-height: 40px;
+    border: none;
+    background-color: #000;
+    color: #fff;
+    border-radius: 3px;
+}
+.logout{
+    margin-top: 40px;
+    display: block;
+    background-color: #ff7f50;
+}
+.button-style:hover{
+    background-color: #f5f5f5;
+}
+.follow-btn{
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 0;
+    width: 120px;
+}
+.unfollow-btn{
+    padding: 0;
+    width: 120px;
+}
+header{
+    width: 100%;
+    border-bottom: 1px solid #dcdcdc;
+    background-color: #fff;
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+}
+.header-contents{
+    overflow: hidden;
+    clear: both;
+    line-height: 60px;
+}
+.header-contents h1{
+    float: left;
+}
+.header-contents nav{
+    float: right;
+}
+.header-contents nav ul li{
+    margin-left: 15px;
+}
+.icon-size{
+    font-size: 26px;
+    vertical-align: middle;
+    color: #000;
+}
+.toptitle-style{
+    font-size: 25px;
+    font-family: 'Comfortaa', cursive;
+}
+.top-icon li{
+    display: inline-block;
+}
+.login{
+    border: solid 1px #000;
+    border-radius: 4px;
+    padding: 3px 10px;
+}
+.main-contents{
+    margin-top: 60px;
+}
+.post-box{
+    padding: 20px 15px;
+    width: 100%;
+    background-color: #fff;
+    border-bottom: 1px solid #dcdcdc;
+    border-radius: 4px;
+    display: flex;
+}
+.post-container{
+    padding-left: 20px;
+    width: 100%;
+}
+.d_post-user{
+    display: flex;
+}
+.d_post-user a:hover{
+    text-decoration: underline;
+}
+.post_nickname{
+    font-weight: bold;
+}
+.post_username{
+    display: flex;
+    align-items: center;
+    margin-left: 5px;
+}
+.post_username a{
+    color: #71767B;
+    font-size: 14px;
+}
+.created-date{
+    text-align: right;
+}
+.created-date a{
+    color: #71767B;
+    font-size: 14px;
+}
+.form-style{
+    text-align: center;
+}
+.section-title{
+    padding-bottom: 60px;
+    font-size: 26px;
+}
+.post-textfield-style{
+    padding: 10px 15px;
+    margin-bottom: 20px;
+    width: 100%;
+    background-color: #f5f5f5;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+}
+.post-text{
+    width: 100%;
+}
+.post-text a{
+    color: #1D9BF0;
+}
+/* Profile */
+.profile{
+    width: 100%;
+    padding: 0 15px 20px 15px;
+    margin: o auto 60px auto;
+    border-bottom: solid 1px #dcdcdc;
+    overflow: hidden;
+    display: flex;
+}
+.profile-top li{
+    vertical-align: middle;
+}
+.user-icon{
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
+}
+.user-icon-img30{
+    width: 30px;
+    vertical-align: middle;
+    object-fit: cover;
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+}
+.user-icon-img50{
+    object-fit: cover;
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+}
+.user-icon-img150{
+    object-fit: cover;
+    width: 120px;
+    height: 120px;
+    border-radius: 60px;
+}
+.profile-info{
+    float: left;
+}
+.profile ul{
+    margin-bottom: 10px;
+}
+.myname{
+    font-size: 20px;
+}
+.url{
+    color: #8ecab1;
+    font-size: 14px;
+}
+.url-icon{
+    margin-right: 5px;
+    color: #8ecab1;
+}
+.introduction{
+    margin-bottom: 10px;
+}
+.profile-top li, .profile-bottom li{
+    display: inline-block;
+}
+/* Edit profile */
+.edit-profile{
+    width: 100%;
+}
+.edit-profile-right{
+    padding-bottom: 40px;
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
+    display: flex;
+}
+.edit-profile-btn{
+
+}
+.edit-profile-form{
+    width: 100%;
+}
+.edit-profile-left{
+    border-right: solid 1px #dcdcdc;
+    width: 360px;
+}
+.edit-profile-left a:hover{
+    background-color: #f5f5f5;
+}
+.edit-profile-left a{
+    padding: 20px 40px;
+    box-sizing: border-box;
+    display: block;
+}
+.edit-profile-field-box{
+    margin: 0 auto 20px auto;
+    text-align: center;
+    width: 100%;
+}
+.edit-profile-field{
+    padding-right: 60px;
+    justify-content: flex-start;
+    width: 100%;
+    text-align: left;
+}
+.edit-profile-top{
+    text-align: center;
+    margin-bottom: 20px;
+}
+.edit-profile-area{
+    text-align: center;
+    width: 360px;
+    margin: 0 auto;
+}
+.epl-section{
+    border-left: solid 2px #fff;
+}
+.edit-profile-select{
+    border-left: solid 3px #e8383d;
+}
+.edit-profile-username{
+    font-size: 22px;
+}
+#change-profile-image{
+    color: #0095f6;
+    display: inline-block;
+    cursor : pointer;
+    vertical-align: middle;
+}
+.myprofile-bottom-style{
+    margin-right: 15px;
+}
+.myprofile-bottom-style a{
+    color: #71767B;
+}
+.ff-text{
+    color: #000;
+    font-weight: bold;
+    margin-right: 5px;
+}
+.field-style{
+    padding: 0 10px;
+    border: solid 1px #dcdcdc;
+    border-radius: 3px;
+    box-sizing: border-box;
+    background-color: #fff;
+    font-family: sans-serif;
+    height: 40px;
+}
+.field-label{
+    text-align: left;
+    
+}
+.textarea-style{
+    height: 80px;
+    padding: 10px 10px;
+}
+.form-field-style{
+    width: 100%;
+    max-width: 360px;
+}
+.date-field{
+    width: 33.3%;
+    max-width: 120px;
+}
+.form-style{
+    padding: 0 15px;
+}
+.new-tweet{
+    font-size: 20px;
+    text-align: left;
+    font-weight: bold;
+    padding: 15px 0;
+}
+.form-style p{
+    margin-bottom: 40px;
+}
+/* Change password */
+.changed-password{
+    color: #ff7f50;
+    vertical-align: middle;
+}
+.forgot-password{
+    color: #0095f6;
+    margin-top: 40px;
+    display: inline-block;
+}
+/* follower following リスト */
+.ff-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    padding: 0 15px;
+}
+.ff-container ul{
+    display: inline-block;
+    width: 150px;
+    margin-left: 10px;
+}
+.ff-container img{
+    margin-right: 10px;
+}
+.fuser-name{
+    font-weight: bold;
+}
+.fuser-name:hover{
+    text-decoration: underline;
+}
+.name-glay{
+    color: #71767B;
+}
+
+@media screen and (max-width: 500px) {
+	/* 480px以下に適用されるCSS（スマホ用） */
+    .user-icon-img150{
+        width: 85px;
+        height: 85px;
+    }
+    .edit-profile-btn{
+        margin: 5px 0 0 0;
+    }
+    .profile ul{
+        /* margin-bottom: 5px; */
+    }
+    .profile-top li{
+        display: block;
+    }
+
+}
